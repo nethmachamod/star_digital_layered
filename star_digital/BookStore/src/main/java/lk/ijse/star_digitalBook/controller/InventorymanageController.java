@@ -11,7 +11,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import lk.ijse.star_digitalBook.controller.models.InventoryModel;
+import lk.ijse.star_digitalBook.bo.BOFactory;
+import lk.ijse.star_digitalBook.bo.custom.InventoryBO;
+import lk.ijse.star_digitalBook.bo.BOFactory;
 import lk.ijse.star_digitalBook.dto.inventoryDTO;
 
 public class InventorymanageController implements Initializable {
@@ -40,7 +42,7 @@ public class InventorymanageController implements Initializable {
     @FXML
     private TableColumn<inventoryDTO, String> colStockInDate;
 
-    private final InventoryModel model = new InventoryModel();
+   InventoryBO inventoryBO=(InventoryBO) BOFactory.getInstance().getBO(BOFactory.BOType.INVENTORY);
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -52,7 +54,7 @@ public class InventorymanageController implements Initializable {
 
         loadTable();
         try {
-            inventoryIdField.setText(InventoryModel.getNextInventoryId());
+            inventoryIdField.setText(inventoryBO.getNextInventoryId());
         } catch (Exception e) {
             e.printStackTrace();
             alert("Failed to load next inventory ID", Alert.AlertType.ERROR);
@@ -75,11 +77,11 @@ public class InventorymanageController implements Initializable {
                     stockInDatePicker.getValue()
             );
 
-            if (InventoryModel.saveInventory(dto)) {
+            if (inventoryBO.saveInventory(dto)) {
                 alert("Inventory saved successfully", Alert.AlertType.INFORMATION);
                 clearFields();
                 loadTable();
-                inventoryIdField.setText(InventoryModel.getNextInventoryId());
+                inventoryIdField.setText(inventoryBO.getNextInventoryId());
             } else {
                 alert("Failed to save inventory", Alert.AlertType.ERROR);
             }
@@ -99,7 +101,7 @@ public class InventorymanageController implements Initializable {
         }
 
         try {
-            inventoryDTO dto = InventoryModel.searchInventory(id);
+            inventoryDTO dto = inventoryBO.searchInventory(id);
 
             if (dto != null) {
                 inventoryNameField.setText(dto.getInventoryName());
@@ -112,6 +114,8 @@ public class InventorymanageController implements Initializable {
         } catch (SQLException e) {
             e.printStackTrace();
             alert("Search failed: " + e.getMessage(), Alert.AlertType.ERROR);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -135,11 +139,11 @@ public class InventorymanageController implements Initializable {
                     stockInDatePicker.getValue()
             );
 
-            if (InventoryModel.updateInventory(dto)) {
+            if (inventoryBO.updateInventory(dto)) {
                 alert("Inventory updated successfully", Alert.AlertType.INFORMATION);
                 clearFields();
                 loadTable();
-                inventoryIdField.setText(InventoryModel.getNextInventoryId());
+                inventoryIdField.setText(inventoryBO.getNextInventoryId());
             } else {
                 alert("Failed to update inventory", Alert.AlertType.ERROR);
             }
@@ -169,11 +173,11 @@ public class InventorymanageController implements Initializable {
         }
 
         try {
-            if (InventoryModel.deleteInventory(id)) {
+            if (inventoryBO.deleteInventory(id)) {
                 alert("Inventory deleted successfully", Alert.AlertType.INFORMATION);
                 clearFields();
                 loadTable();
-                inventoryIdField.setText(InventoryModel.getNextInventoryId());
+                inventoryIdField.setText(inventoryBO.getNextInventoryId());
             } else {
                 alert("Failed to delete inventory", Alert.AlertType.ERROR);
             }
@@ -187,7 +191,7 @@ public class InventorymanageController implements Initializable {
     private void resetFields(ActionEvent event) {
         clearFields();
         try {
-            inventoryIdField.setText(InventoryModel.getNextInventoryId());
+            inventoryIdField.setText(inventoryBO.getNextInventoryId());
         } catch (Exception e) {
             e.printStackTrace();
             alert("Failed to reset: " + e.getMessage(), Alert.AlertType.ERROR);
@@ -252,7 +256,7 @@ public class InventorymanageController implements Initializable {
      */
     private void loadTable() {
         try {
-            List<inventoryDTO> inventoryList = model.getAllInventory();
+            List<inventoryDTO> inventoryList = inventoryBO.getAllInventory();
             ObservableList<inventoryDTO> obList = FXCollections.observableArrayList(inventoryList);
             tableView.setItems(obList);
         } catch (Exception e) {
