@@ -4,8 +4,7 @@
  */
 package lk.ijse.star_digitalBook.bo;
 
-import lk.ijse.star_digitalBook.bo.custom.Impl.EmployeeBOImpl;
-import lk.ijse.star_digitalBook.bo.custom.Impl.ItemBOImpl;
+import lk.ijse.star_digitalBook.bo.custom.Impl.*;
 
 
 /**
@@ -20,15 +19,36 @@ public class BOFactory {
     }
     public enum BOType{
         EMPLOYEE,
-        ITEM
+        ITEM,
+        INVENTORY,
+        ORDER,
+        SUPPLIER,
+        ORDER_ITEM,
+        PAYMENT,
+        SALES_REPORT,
+        USER
 
     }
     public SuperBO getBO(BOType botype){
         switch (botype){
             case EMPLOYEE:
                 return new EmployeeBOImpl();
-                case ITEM:
-                    return new ItemBOImpl();
+            case ITEM:
+                 return new ItemBOImpl();
+            case INVENTORY:
+                  return new InventoryBOImpl();
+            case ORDER:
+                   return new OrderBOImpl();
+            case SUPPLIER:
+                   return new SupplierBOImpl();
+            case ORDER_ITEM:
+                    return new OrderItemsBOImpl();
+            case PAYMENT:
+                     return new PaymentBOImpl();
+            case SALES_REPORT:
+                      return new SalesBOImpl();
+            case USER:
+                     return new UserBOImpl();
 
             default:
                 return null;

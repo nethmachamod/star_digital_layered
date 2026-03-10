@@ -5,6 +5,7 @@
 package lk.ijse.star_digitalBook.dao;
 
 import lk.ijse.star_digitalBook.dao.custom.Impl.EmployeeDAOImpl;
+import lk.ijse.star_digitalBook.dao.custom.Impl.InventoryDAOImpl;
 import lk.ijse.star_digitalBook.dao.custom.Impl.ItemDAOImpl;
 
 
@@ -16,7 +17,8 @@ public class DAOFactory {
     }
     public enum DAOType{
         EMPLOYEE,
-        ITEM
+        ITEM,
+        INVENTORY
 
     }
     public SuperDAO getDAOType(DAOType daotype){
@@ -25,6 +27,8 @@ public class DAOFactory {
                 return new EmployeeDAOImpl();
                 case ITEM:
                     return new ItemDAOImpl();
+                    case INVENTORY:
+                        return new InventoryDAOImpl();
 
             default:
                 return null;
