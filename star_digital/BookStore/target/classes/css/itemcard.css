@@ -1,0 +1,86 @@
+/* Root AnchorPane background */
+.anchor-pane {
+    -fx-background-color: #1e1e1e; /* dark background */
+}
+
+/* Labels */
+.label {
+    -fx-text-fill: #f0f0f0; /* light text */
+    -fx-font-weight: bold;
+}
+
+/* TextFields */
+.text-field {
+    -fx-background-color: #2e2e2e;
+    -fx-text-fill: #f0f0f0;
+    -fx-border-color: #555555;
+    -fx-border-radius: 3;
+    -fx-background-radius: 3;
+}
+
+/* Buttons */
+.button {
+    -fx-background-color: #444444;
+    -fx-text-fill: #f0f0f0;
+    -fx-font-weight: bold;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+}
+
+.button:hover {
+    -fx-background-color: #666666;
+}
+
+/* Special delete button */
+.button-delete {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+}
+
+.button-delete:hover {
+    -fx-background-color: #c0392b;
+}
+
+/* TableView */
+.table-view {
+    -fx-background-color: #2b2b2b;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+    -fx-text-background-color: #f0f0f0;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #333333;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-background-color: #333333;
+    -fx-text-fill: #f0f0f0;
+    -fx-font-weight: bold;
+}
+
+.table-view .cell {
+    -fx-background-color: #2b2b2b;
+    -fx-text-fill: #f0f0f0;
+}
+
+/* Separator */
+.separator {
+    -fx-background-color: #555555;
+}
+
+/* FlowPane items (cards) */
+.flow-pane .anchor-pane {
+    -fx-background-color: #2b2b2b;
+    -fx-border-color: #555555;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+/* ImageView boxes */
+.image-box {
+    -fx-background-color: #2b2b2b;
+    -fx-border-color: #555555;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}

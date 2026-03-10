@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="822.0" stylesheets="@../../../css/itemmanage.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.star_digitalBook.controller.ItemmanageController">
+    <children>
+        <AnchorPane layoutX="9.0" layoutY="14.0" prefHeight="286.0" prefWidth="807.0" AnchorPane.leftAnchor="9.199999999999932" AnchorPane.topAnchor="14.0">
+            <children>
+                <TableView fx:id="tblitem" layoutX="311.0" layoutY="43.0" prefHeight="286.4" prefWidth="807.2" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                        <TableColumn fx:id="idcol" prefWidth="179.99999409914017" text="Item ID" />
+                        <TableColumn fx:id="namecol" prefWidth="231.20001220703125" text="Item Name" />
+                        <TableColumn fx:id="categorycol" minWidth="0.0" prefWidth="207.20001220703125" text="item Category" />
+                        <TableColumn fx:id="pricecol" prefWidth="189.60003662109375" text="Price(Rs)" />
+                    </columns>
+                </TableView>
+            </children>
+        </AnchorPane>
+        <Separator layoutY="309.0" prefHeight="3.0" prefWidth="822.0" />
+        <AnchorPane layoutX="7.0" layoutY="312.0" prefHeight="278.0" prefWidth="807.0">
+            <children>
+                <Label layoutX="350.0" layoutY="7.0" prefHeight="27.0" prefWidth="126.0" text="Manage items" textFill="#ea580c">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="14.0" layoutY="54.0" text="Item ID :">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <Label layoutX="14.0" layoutY="101.0" text="Item Name :">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <Label layoutX="14.0" layoutY="156.0" text="Item Category :">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <Label layoutX="17.0" layoutY="207.0" text="Item Price :">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="itemid" layoutX="121.0" layoutY="51.0" onKeyPressed="#searchItem" prefHeight="26.0" prefWidth="182.0" />
+                <TextField fx:id="itemname" layoutX="121.0" layoutY="98.0" prefHeight="26.0" prefWidth="182.0" />
+                <TextField fx:id="itemcategory" layoutX="121.0" layoutY="153.0" prefHeight="26.0" prefWidth="182.0" />
+                <TextField fx:id="itemprice" layoutX="121.0" layoutY="204.0" prefHeight="26.0" prefWidth="182.0" promptText="Rs.0.0" />
+                <Button layoutX="413.0" layoutY="47.0" mnemonicParsing="false" onAction="#saveItem" prefHeight="34.0" prefWidth="162.0" text="Save" />
+                <Button layoutX="413.0" layoutY="96.0" mnemonicParsing="false" onAction="#updateItem" prefHeight="34.0" prefWidth="162.0" text="Update" />
+                <Button layoutX="411.0" layoutY="149.0" mnemonicParsing="false" onAction="#cleanFields" prefHeight="34.0" prefWidth="162.0" text="Reset Fields" />
+                <Button layoutX="411.0" layoutY="200.0" mnemonicParsing="false" onAction="#deleteItem" prefHeight="34.0" prefWidth="162.0" styleClass="button-delete" text="Delete " />
+                <AnchorPane layoutX="621.0" layoutY="27.0" prefHeight="147.0" prefWidth="150.0" style="-fx-background-color: white;" styleClass="image-box">
+                    <children>
+                        <ImageView fx:id="itemphoto" fitHeight="131.0" fitWidth="175.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" />
+                    </children>
+                </AnchorPane>
+                <Button fx:id="importimage" layoutX="654.0" layoutY="191.0" mnemonicParsing="false" onAction="#uploadImage" prefHeight="26.0" prefWidth="96.0" style="-fx-background-color: #ff8800;" text="Import" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Button>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

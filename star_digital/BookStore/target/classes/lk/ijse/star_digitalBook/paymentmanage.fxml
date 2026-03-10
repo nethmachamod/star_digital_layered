@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane prefHeight="600.0" prefWidth="822.0" stylesheets="@css/payment-dark-final.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.star_digitalBook.controller.PaymentManageController">
+    <children>
+        <!-- Background Image -->
+        <ImageView fitHeight="600.0" fitWidth="822.0" pickOnBounds="true" preserveRatio="false">
+            <image>
+                <!-- Use relative path from resources folder -->
+                <Image url="@images/payment.jpg" /> 
+            </image>
+        </ImageView>
+
+        <!-- Main Panel -->
+        <AnchorPane prefHeight="618.0" prefWidth="840.0">
+            <children>
+                <!-- Header -->
+                <Label layoutX="257.0" layoutY="14.0" prefHeight="35.0" prefWidth="307.0" styleClass="header-label" text="Payment Management">
+                    <font><Font name="System Bold" size="28.0" /></font>
+                </Label>
+
+                <!-- Input Fields Section -->
+                <AnchorPane layoutX="8.0" layoutY="58.0" prefHeight="226.0" prefWidth="806.0">
+                    <children>
+                        <Label layoutX="233.0" layoutY="35.0" styleClass="field-label" text="Payment ID :" textFill="#ff8080" />
+                        <Label layoutX="233.0" layoutY="86.0" styleClass="field-label" text="Order ID :" textFill="#ff8080" />
+                        <Label layoutX="233.0" layoutY="132.0" styleClass="field-label" text="Customer ID :" textFill="#ff8080" />
+                        <Label layoutX="233.0" layoutY="179.0" styleClass="field-label" text="Payment Type :" textFill="#ff8080" />
+
+                        <TextField fx:id="paymentIdTxt" layoutX="351.0" layoutY="33.0" prefWidth="200.0" styleClass="text-field" />
+                        <TextField fx:id="orderIdTxt" layoutX="352.0" layoutY="83.0" prefWidth="200.0" styleClass="text-field" />
+                        <TextField fx:id="customerIdTxt" layoutX="352.0" layoutY="130.0" prefWidth="200.0" styleClass="text-field" />
+                        <ComboBox fx:id="paymentTypeCombo" layoutX="351.0" layoutY="177.0" prefWidth="200.0" styleClass="combo-box" />
+                    </children>
+                </AnchorPane>
+
+                <Separator layoutX="8.0" layoutY="289.0" prefHeight="13.0" prefWidth="806.0" styleClass="separator" />
+
+                <!-- Amount Section -->
+                <Label layoutX="200.0" layoutY="352.0" styleClass="amount-label" text="Net Amount :" textFill="#ff8282" />
+                <Label layoutX="200.0" layoutY="403.0" styleClass="amount-label" text="Paid Amount :" textFill="#ff8080" />
+                <Label layoutX="200.0" layoutY="456.0" styleClass="amount-label" text="Balance :" textFill="#ff8080" />
+
+                <TextField fx:id="netAmountTxt" layoutX="376.0" layoutY="352.0" prefHeight="40.0" prefWidth="200.0" promptText="Enter Amount" styleClass="amount-field" />
+                <TextField fx:id="paidAmountTxt" layoutX="376.0" layoutY="403.0" prefHeight="40.0" prefWidth="200.0" promptText="Paid Amount" styleClass="amount-field" />
+                <TextField fx:id="balanceTxt" editable="false" layoutX="376.0" layoutY="456.0" prefHeight="40.0" prefWidth="200.0" styleClass="amount-field" />
+
+                <!-- Buttons -->
+                <Button layoutX="262.0" layoutY="554.0" onAction="#processPayment" prefHeight="30.0" prefWidth="140.0" style="-fx-background-color: #d7bad9;" styleClass="pay-button" text="Pay" textFill="#250202" />
+                <Button layoutX="424.0" layoutY="554.0" onAction="#handlePrintBill" prefHeight="30.0" prefWidth="140.0" style="-fx-background-color: #d7bad9;" styleClass="print-button" text="Print Bill" />
+
+                <!-- Balance Display -->
+                <Label fx:id="balanceLabel" layoutX="200.0" layoutY="510.0" prefHeight="30.0" prefWidth="400.0" styleClass="balance-display" text="Balance: Rs. 0.00" textFill="#ff8080" />
+            </children>
+        </AnchorPane>
+    </children>
+</StackPane>

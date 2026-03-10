@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="822.0" stylesheets="@../../../css/employee.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.star_digitalBook.controller.EmployeemanageController">
+    <children>
+        <AnchorPane layoutX="10.0" layoutY="14.0" prefHeight="254.0" prefWidth="802.0">
+            <children>
+                <TableView fx:id="tblemployee" layoutX="248.0" layoutY="65.0" prefHeight="265.6" prefWidth="802.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                        <TableColumn fx:id="colId" prefWidth="62.399959564208984" text="ID" />
+                        <TableColumn fx:id="colName" prefWidth="127.19998168945312" text="Name" />
+                        <TableColumn fx:id="colNic" prefWidth="132.00001525878906" text="NIC" />
+                        <TableColumn fx:id="colContact" prefWidth="129.60003662109375" text="Contact Number" />
+                        <TableColumn fx:id="colJob" prefWidth="92.79998779296875" text="JOB TITLE" />
+                        <TableColumn fx:id="colSalary" prefWidth="135.20001220703125" text="SALARY" />
+                        <TableColumn fx:id="colHireDate" prefWidth="107.199951171875" text="HIRED DATE" />
+                        <TableColumn fx:id="colStatus" prefWidth="183.199951171875" text="STATUS" />
+                    </columns>
+                </TableView>
+            </children>
+        </AnchorPane>
+        <Separator layoutX="10.0" layoutY="277.0" prefHeight="5.0" prefWidth="802.0" />
+        <AnchorPane layoutX="10.0" layoutY="283.0" prefHeight="305.0" prefWidth="802.0">
+            <children>
+                <Label layoutX="339.0" layoutY="3.0" text="Employee Manage">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Label>
+                <Label layoutX="17.0" layoutY="6.0" text="Employee ID      :">
+                    <padding>
+                        <Insets left="5.0" />
+                    </padding>
+                </Label>
+                <TextField fx:id="idfield" layoutX="134.0" layoutY="3.0" onKeyPressed="#searchEmployee" />
+                <Label layoutX="15.0" layoutY="50.0" text="Employee Name :">
+                    <padding>
+                        <Insets left="5.0" />
+                    </padding>
+                </Label>
+                <TextField fx:id="namefield" layoutX="134.0" layoutY="44.0" />
+                <Label layoutX="15.0" layoutY="91.0" text="Employee NIC     :">
+                    <padding>
+                        <Insets left="5.0" />
+                    </padding>
+                </Label>
+                <TextField fx:id="nicfield" layoutX="134.0" layoutY="85.0" />
+                <Label layoutX="14.0" layoutY="135.0" text="Contact Number :">
+                    <padding>
+                        <Insets left="5.0" />
+                    </padding>
+                </Label>
+                <TextField fx:id="contactfield" layoutX="134.0" layoutY="127.0" />
+                <Label layoutX="15.0" layoutY="181.0" text="Job Title              :">
+                    <padding>
+                        <Insets left="5.0" />
+                    </padding>
+                </Label>
+                <ComboBox fx:id="jobfield" layoutX="137.0" layoutY="167.0" prefHeight="36.0" prefWidth="150.0" />
+                <Label layoutX="14.0" layoutY="224.0" text="Salary                  :">
+                    <padding>
+                        <Insets left="5.0" />
+                    </padding>
+                </Label>
+                <TextField fx:id="salaryfield" layoutX="134.0" layoutY="216.0" />
+                <Label layoutX="12.0" layoutY="276.0" text="Hired Date           :">
+                    <padding>
+                        <Insets left="5.0" />
+                    </padding>
+                </Label>
+                <ComboBox fx:id="statusfield" layoutX="636.0" layoutY="37.0" prefWidth="150.0" />
+                <Label layoutX="561.0" layoutY="39.0" text="Status      :">
+                    <padding>
+                        <Insets left="5.0" />
+                    </padding>
+                </Label>
+                <Button layoutX="384.0" layoutY="51.0" mnemonicParsing="false" onAction="#saveEmployee" prefHeight="36.0" prefWidth="110.0" text="Save" />
+                <Button layoutX="384.0" layoutY="105.0" mnemonicParsing="false" onAction="#updateEmployee" prefHeight="36.0" prefWidth="110.0" text="Update" />
+                <Button layoutX="384.0" layoutY="219.0" mnemonicParsing="false" onAction="#deleteEmployee" prefHeight="36.0" prefWidth="110.0" styleClass="delete-button" text="Delete" />
+                <Button layoutX="384.0" layoutY="163.0" mnemonicParsing="false" onAction="#clearfields" prefHeight="36.0" prefWidth="110.0" text="Clean Fields" />
+                <DatePicker fx:id="datefield" layoutX="134.0" layoutY="258.0" prefHeight="16.0" prefWidth="150.0" />
+            <ImageView fx:id="itemphoto" fitHeight="131.0" fitWidth="175.0" layoutX="601.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true" />
+            <Button fx:id="importimage" layoutX="663.0" layoutY="258.0" mnemonicParsing="false" onAction="#importPhoto" prefHeight="26.0" prefWidth="96.0" style="-fx-background-color: #ff8800;" text="Import" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

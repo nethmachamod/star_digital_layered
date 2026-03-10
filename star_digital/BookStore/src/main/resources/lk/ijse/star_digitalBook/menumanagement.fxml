@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="822.0" stylesheets="@../../../css/menumanage.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.star_digitalBook.controller.MenumanagementController">
+    <children>
+        <AnchorPane layoutX="6.0" layoutY="7.0" prefHeight="588.0" prefWidth="514.0">
+            <children>
+                <ScrollPane fitToWidth="true" layoutX="-0.8" prefHeight="588.0" prefWidth="514.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="0.0">
+                    <content>
+                        <FlowPane fx:id="flowMenu" hgap="15.0" prefWidth="550.0" vgap="15.0" />
+                    </content>
+                </ScrollPane>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="520.0" layoutY="3.0" prefHeight="588.0" prefWidth="285.0">
+            <children>
+                <TableView fx:id="tblCart" layoutX="-5.0" layoutY="-7.0" prefHeight="438.0" prefWidth="314.0" styleClass="column-header">
+                    <columns>
+                        <TableColumn fx:id="colItemName" prefWidth="113.60003662109375" resizable="false" text="Item Name" />
+                        <TableColumn fx:id="colQuantity" prefWidth="39.99993896484375" text="Qty" />
+                        <TableColumn fx:id="colPrice" prefWidth="92.7999267578125" resizable="false" text="Price(RS)" />
+                    </columns>
+                </TableView>
+                <Label layoutX="32.0" layoutY="463.0" text="Total (RS)  :">
+                    <font>
+                        <Font name="System Bold" size="17.0" />
+                    </font>
+                </Label>
+                <Label fx:id="lblTotal" layoutX="119.0" layoutY="456.0" prefHeight="32.0" prefWidth="153.0" text="RS 0.0" />
+                <Button fx:id="btnProceedToOrder" layoutX="75.0" layoutY="506.0" mnemonicParsing="false" onAction="#proceedToOrder" prefHeight="41.0" prefWidth="167.0" text="Proceed To Order" />
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="822.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.star_digitalBook.controller.OrdermanagementController">
+
+    <!-- ===================== EXISTING ORDERS ===================== -->
+
+    <Label layoutX="350" layoutY="5" text="Existing Orders" textFill="#90b8e1">
+        <font>
+            <Font size="16" />
+        </font>
+    </Label>
+
+    <TableView fx:id="tblOrders" layoutX="10" layoutY="30" prefHeight="140" prefWidth="800" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="30.0">
+        <columns>
+            <TableColumn fx:id="colOrderId" prefWidth="88.7999849319458" text="Order ID" />
+            <TableColumn fx:id="colCustomerId" prefWidth="81.60000610351562" text="Customer ID" />
+            <TableColumn fx:id="colOrderDate" prefWidth="120" text="Order Date" />
+            <TableColumn fx:id="colOrderType" prefWidth="102.4000244140625" text="Order Type" />
+            <TableColumn fx:id="colOrderContact" prefWidth="98.39996337890625" text="Contact" />
+            <TableColumn fx:id="colAmount" prefWidth="80" text="Amount" />
+            <TableColumn fx:id="colDiscount" prefWidth="106.4000244140625" text="Discount" />
+            <TableColumn fx:id="colTotal" prefWidth="121.60003662109375" text="Total" />
+        </columns>
+    </TableView>
+
+    <Label layoutX="15" layoutY="180" text="Search Order :" textFill="#a3a4c4" />
+    <TextField fx:id="searchField" layoutX="100" layoutY="176" prefWidth="160" />
+
+    <Button layoutX="270" layoutY="176" onAction="#searchOrder" text="Search" />
+    <Button layoutX="350" layoutY="176" onAction="#refreshOrders" text="Refresh" />
+
+    <!-- ===================== CART ITEMS ===================== -->
+
+    <Label layoutX="360.0" layoutY="219.0" text="Cart Items" textFill="#946767" />
+
+    <TableView fx:id="tblOrderItems" layoutX="10" layoutY="235" prefHeight="140" prefWidth="800" AnchorPane.leftAnchor="10.4" AnchorPane.rightAnchor="12.0">
+        <columns>
+            <TableColumn fx:id="colItemName" prefWidth="350" text="Item Name" />
+            <TableColumn fx:id="colItemQty" prefWidth="240.0" text="Quantity" />
+            <TableColumn fx:id="colItemPrice" prefWidth="208.800048828125" text="Line Total" />
+        </columns>
+    </TableView>
+
+    <!-- ===================== ORDER DETAILS ===================== -->
+
+    <Label layoutX="15.0" layoutY="397.0" text="Order ID :" textFill="#a3a4c4" />
+    <TextField fx:id="orderId" layoutX="102.0" layoutY="391.0" prefWidth="150" />
+
+    <Label layoutX="15.0" layoutY="447.0" text="Customer ID :" textFill="#a3a4c4" />
+    <TextField fx:id="customerId" layoutX="100.0" layoutY="440.0" prefWidth="150" />
+
+    <Label layoutX="15.0" layoutY="502.0" text="Order Type :" textFill="#a3a4c4" />
+    <ComboBox fx:id="orderType" layoutX="100.0" layoutY="492.0" prefWidth="150" />
+
+    <Label layoutX="15.0" layoutY="557.0" text="Contact :" textFill="#a3a4c4" />
+    <TextField fx:id="orderContact" layoutX="100.0" layoutY="547.0" prefWidth="150" />
+
+    <Label layoutX="308.0" layoutY="400.0" text="Amount :" textFill="#a3a4c4" />
+    <TextField fx:id="amount" layoutX="391.0" layoutY="391.0" prefWidth="130" />
+
+    <Label layoutX="306.0" layoutY="449.0" text="Discount :" textFill="#a3a4c4" />
+    <TextField fx:id="discount" layoutX="391.0" layoutY="440.0" prefWidth="130" />
+
+    <Label layoutX="307.0" layoutY="500.0" text="Total :" textFill="#a3a4c4" />
+    <TextField fx:id="total" layoutX="391.0" layoutY="491.0" prefWidth="130" />
+    <Button layoutX="629.0" layoutY="434.0" onAction="#updateOrder" prefWidth="90" text="Update" />
+
+    <Button layoutX="573.0" layoutY="478.0" onAction="#deleteOrder" prefWidth="90" text="Delete" />
+    <Button layoutX="674.0" layoutY="477.0" onAction="#clearFields" prefWidth="90" text="Clear" />
+
+    <Button layoutX="575.0" layoutY="531.0" onAction="#paybutton" prefHeight="40" prefWidth="190" text="PAY">
+        <font>
+            <Font size="18" />
+        </font>
+    </Button>
+
+    <Label layoutX="589.0" layoutY="392.0" text="Cart Total :" textFill="#a3a4c4">
+        <font>
+            <Font size="15.0" />
+        </font></Label>
+    <Label fx:id="lblCartTotal" layoutX="663.0" layoutY="386.0" prefHeight="26.0" prefWidth="138.0" text="Rs. 0.00" textFill="#7effa5">
+        <font>
+            <Font size="17.0" />
+        </font></Label>
+
+</AnchorPane>

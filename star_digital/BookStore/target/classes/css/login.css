@@ -1,0 +1,75 @@
+/* Dark Theme CSS for your JavaFX Login Form */
+
+/* Root and overall background */
+.root {
+    -fx-background-color: #121212; /* Deep dark background */
+    -fx-base: #212121;
+    -fx-accent: #3700B3; /* Optional accent color */
+    -fx-focus-color: #03DAC6;
+    -fx-faint-focus-color: #03DAC622;
+}
+
+/* AnchorPane (main container) */
+AnchorPane {
+    -fx-background-color: #121212;
+}
+
+/* Panes (left image pane and right form pane) */
+Pane {
+    -fx-background-color: #1E1E1E; /* Slightly lighter dark for contrast */
+}
+
+/* Labels (Username and Password) */
+Label {
+    -fx-text-fill: #FFFFFF; /* White text for visibility */
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+/* TextField and PasswordField */
+TextField, PasswordField {
+    -fx-background-color: #2D2D2D;
+    -fx-text-fill: #FFFFFF;
+    -fx-prompt-text-fill: #BBBBBB;
+    -fx-highlight-fill: #03DAC6;
+    -fx-highlight-text-fill: #000000;
+    -fx-border-color: #444444;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-padding: 8;
+}
+
+TextField:focused, PasswordField:focused {
+    -fx-border-color: #03DAC6;
+    -fx-effect: dropshadow(gaussian, #03DAC6, 0, 0.5, 0, 0);
+}
+
+/* Login Button */
+Button {
+    -fx-background-color: #03DAC6; /* Teal accent for button */
+    -fx-text-fill: #121212; /* Dark text on button */
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 10 20 10 20;
+}
+
+Button:hover {
+    -fx-background-color: #018786; /* Darker teal on hover */
+}
+
+Button:pressed {
+    -fx-background-color: #01665E;
+}
+
+/* Optional: Make HBox and VBox transparent */
+HBox, VBox {
+    -fx-background-color: transparent;
+}
+
+/* ImageViews remain unchanged (they display images as is) */
+
+/* Additional tweaks for better dark mode feel */
+.text-input {
+    -fx-text-fill: #FFFFFF;
+}

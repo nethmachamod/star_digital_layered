@@ -1,0 +1,107 @@
+/* ================= ROOT ================= */
+.root, .anchor-pane {
+    -fx-background-color: #121212;
+}
+
+/* ================= LABELS ================= */
+.label {
+    -fx-text-fill: #E0E0E0;
+    -fx-font-family: "Segoe UI";
+}
+
+/* ================= TEXT FIELD ================= */
+.text-field {
+    -fx-background-color: #1E1E1E;
+    -fx-text-fill: #FFFFFF;
+    -fx-prompt-text-fill: #9E9E9E;
+    -fx-border-color: #333333;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+}
+
+/* ================= COMBO BOX ================= */
+.combo-box {
+    -fx-background-color: #1E1E1E;
+    -fx-border-color: #333333;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+}
+
+.combo-box .list-cell {
+    -fx-text-fill: white;
+    -fx-background-color: #1E1E1E;
+}
+
+/* ================= BUTTON ================= */
+.button {
+    -fx-background-color: #2D2D2D;
+    -fx-text-fill: #FFFFFF;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: #444444;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #3A3A3A;
+}
+
+.button:pressed {
+    -fx-background-color: #1F1F1F;
+}
+
+/* ================= PAY BUTTON SPECIAL ================= */
+.button:text {
+    -fx-font-weight: bold;
+}
+
+/* ================= TABLE VIEW ================= */
+.table-view {
+    -fx-background-color: #1A1A1A;
+    -fx-border-color: #333333;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #222222;
+}
+
+.table-view .column-header,
+.table-view .filler {
+    -fx-background-color: #222222;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+}
+
+/* ================= TABLE ROWS ================= */
+.table-row-cell {
+    -fx-background-color: #1A1A1A;
+    -fx-text-fill: #FFFFFF;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #1F1F1F;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #333333;
+}
+
+/* ================= SCROLL BAR ================= */
+.scroll-bar:vertical,
+.scroll-bar:horizontal {
+    -fx-background-color: #121212;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #444444;
+    -fx-background-radius: 10;
+}
+
+/* ================= CART TOTAL LABEL ================= */
+#lblCartTotal {
+    -fx-text-fill: #00E676;
+    -fx-font-weight: bold;
+}

@@ -1,0 +1,114 @@
+/* ==================== ROOT ANCHORPANE ==================== */
+.anchor-pane {
+    -fx-background-color: #1e1e1e; /* Dark background */
+}
+
+/* ==================== LABELS ==================== */
+.label {
+    -fx-text-fill: #f0f0f0; /* Light text */
+    -fx-font-weight: bold;
+}
+
+/* ==================== TEXTFIELDS ==================== */
+.text-field {
+    -fx-background-color: #2e2e2e;
+    -fx-text-fill: #f0f0f0;
+    -fx-border-color: #555555;
+    -fx-border-radius: 3;
+    -fx-background-radius: 3;
+    -fx-padding: 4 6 4 6;
+}
+
+/* ==================== BUTTONS ==================== */
+.button {
+    -fx-background-color: #333333;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6;
+    -fx-cursor: hand;
+    -fx-padding: 6 12 6 12;
+    -fx-transition: all 0.2s ease-in-out; /* smooth hover animation */
+}
+
+/* Hover Effect: Scale + Glow */
+.button:hover {
+    -fx-background-color: #505050;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+    -fx-effect: dropshadow(gaussian, rgba(255,136,0,0.5), 10, 0, 0, 0);
+}
+
+/* Delete Button */
+.button-delete {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+}
+
+.button-delete:hover {
+    -fx-background-color: #e53935;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+    -fx-effect: dropshadow(gaussian, rgba(255,0,0,0.6), 12, 0, 0, 0);
+}
+
+/* ==================== TABLEVIEW ==================== */
+.table-view {
+    -fx-background-color: #2b2b2b;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #333333;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-background-color: #333333;
+    -fx-text-fill: #f0f0f0;
+    -fx-font-weight: bold;
+}
+
+.table-view .cell {
+    -fx-background-color: #2b2b2b;
+    -fx-text-fill: #f0f0f0;
+}
+
+/* ==================== SEPARATOR ==================== */
+.separator {
+    -fx-background-color: #555555;
+}
+
+/* ==================== FLOWPANE ITEMS (CARDS) ==================== */
+.flow-pane .anchor-pane {
+    -fx-background-color: #2b2b2b;
+    -fx-border-color: #555555;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 8;
+    -fx-spacing: 6;
+}
+
+.flow-pane .anchor-pane:hover {
+    -fx-background-color: #3a3a3a;
+    -fx-effect: dropshadow(gaussian, rgba(255,136,0,0.3), 8, 0, 0, 0);
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+    -fx-transition: all 0.2s ease-in-out;
+}
+
+/* ==================== IMAGE BOX ==================== */
+.image-box {
+    -fx-background-color: #2b2b2b;
+    -fx-border-color: #555555;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+/* ==================== TABLEVIEW BUTTONS INSIDE CELLS ==================== */
+.table-cell .button {
+    -fx-background-color: #444444;
+}
+
+.table-cell .button:hover {
+    -fx-background-color: #666666;
+}

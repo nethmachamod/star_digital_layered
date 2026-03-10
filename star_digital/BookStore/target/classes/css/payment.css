@@ -1,0 +1,109 @@
+/* ------------------------------
+   StackPane Background
+------------------------------- */
+.stack-pane {
+    -fx-background-color: #1c1c1c; /* dark grey background */
+}
+
+/* ------------------------------
+   Header Label
+------------------------------- */
+.header-label {
+    -fx-text-fill: #ffffff; /* white */
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+}
+
+/* ------------------------------
+   Field Labels (Payment ID, etc.)
+------------------------------- */
+.field-label {
+    -fx-text-fill: #e9d3eb; /* light grey */
+    -fx-font-size: 16px;
+    -fx-font-weight: semi-bold;
+}
+
+/* ------------------------------
+   TextFields (input fields)
+------------------------------- */
+.text-field, .amount-field {
+    -fx-background-color: #2c2c2c; /* slightly lighter dark */
+    -fx-text-fill: #ffffff; /* white text */
+    -fx-prompt-text-fill: #bbbbbb; /* placeholder light grey */
+    -fx-font-size: 14px;
+    -fx-border-color: #555555; /* subtle border */
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 5px;
+}
+
+/* ------------------------------
+   ComboBox
+------------------------------- */
+.combo-box {
+    -fx-background-color: #2c2c2c;
+    -fx-text-fill: #ffffff;
+    -fx-prompt-text-fill: #bbbbbb;
+    -fx-border-color: #555555;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+/* ------------------------------
+   Separator
+------------------------------- */
+.separator {
+    -fx-background-color: #555555;
+}
+
+/* ------------------------------
+   Amount Labels
+------------------------------- */
+.amount-label {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+/* ------------------------------
+   Buttons
+------------------------------- */
+.pay-button {
+    -fx-background-color: #4caf50; /* green */
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8px;
+}
+
+.print-button {
+    -fx-background-color: #2196f3; /* blue */
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8px;
+}
+
+.pay-button:hover {
+    -fx-background-color: #45a049; /* slightly darker green */
+}
+
+.print-button:hover {
+    -fx-background-color: #1976d2; /* slightly darker blue */
+}
+
+/* ------------------------------
+   Balance Display
+------------------------------- */
+.balance-display {
+    -fx-text-fill: #ffff66; /* light yellow */
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+/* ------------------------------
+   Scroll Pane or Panels if any
+------------------------------- */
+.anchor-pane {
+    -fx-background-color: transparent;
+}

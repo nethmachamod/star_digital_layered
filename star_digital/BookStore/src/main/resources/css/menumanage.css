@@ -1,0 +1,132 @@
+/* ==================== ROOT ANCHORPANE ==================== */
+.anchor-pane {
+    -fx-background-color: #1e1e1e; /* Dark background */
+}
+
+/* ==================== FLOWPANE (Menu Items) ==================== */
+.flow-pane {
+    -fx-background-color: transparent;
+    -fx-padding: 10;
+    -fx-hgap: 15;
+    -fx-vgap: 15;
+}
+
+/* Individual item cards inside FlowPane */
+.flow-pane .anchor-pane {
+    -fx-background-color: #2b2b2b;
+    -fx-border-color: #555555;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 8;
+    -fx-spacing: 6;
+    -fx-cursor: hand;
+    -fx-transition: all 0.2s ease-in-out;
+}
+
+.flow-pane .anchor-pane:hover {
+    -fx-background-color: #3a3a3a;
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+    -fx-effect: dropshadow(gaussian, rgba(255,136,0,0.3), 8, 0, 0, 0);
+}
+
+/* ==================== IMAGE INSIDE CARD ==================== */
+.flow-pane .anchor-pane .image-view {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 5, 0, 0, 0);
+    -fx-background-radius: 6;
+}
+
+/* ==================== ITEM LABEL ==================== */
+.flow-pane .anchor-pane .label {
+    -fx-text-fill: #f0f0f0;
+    -fx-font-weight: bold;
+}
+
+/* ==================== ADD TO CART BUTTON ==================== */
+.flow-pane .anchor-pane .button {
+    -fx-background-color: #ff8800;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6;
+    -fx-cursor: hand;
+    -fx-padding: 4 8 4 8;
+    -fx-transition: all 0.2s ease-in-out;
+}
+
+.flow-pane .anchor-pane .button:hover {
+    -fx-background-color: #ff9c33;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+    -fx-effect: dropshadow(gaussian, rgba(255,136,0,0.6), 10, 0, 0, 0);
+}
+
+/* ==================== TABLEVIEW ==================== */
+.table-view {
+    -fx-background-color: #2b2b2b;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+    -fx-text-fill: #f0f0f0;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #333333;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-background-color: #333333;
+    -fx-text-fill: #f0f0f0;
+    -fx-font-weight: bold;
+}
+
+.table-view .cell {
+    -fx-background-color: #2b2b2b;
+    -fx-text-fill: #f0f0f0;
+}
+
+/* ==================== SCROLLPANE ==================== */
+.scroll-pane {
+    -fx-background: #1e1e1e;
+}
+
+/* ==================== LABELS ==================== */
+.label {
+    -fx-text-fill: #f0f0f0;
+    -fx-font-weight: bold;
+}
+
+/* ==================== TOTAL LABEL ==================== */
+#lblTotal {
+    -fx-text-fill: #ffb74d;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+}
+
+/* ==================== PROCEED BUTTON ==================== */
+#btnProceedToOrder {
+    -fx-background-color: #ff8800;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6;
+}
+
+#btnProceedToOrder:hover {
+    -fx-background-color: #ff9c33;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+    -fx-effect: dropshadow(gaussian, rgba(255,136,0,0.6), 10, 0, 0, 0);
+}
+
+/* ==================== DELETE BUTTON ==================== */
+.button-delete {
+    -fx-background-color: #e53935;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6;
+}
+
+.button-delete:hover {
+    -fx-background-color: #ff6666;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+    -fx-effect: dropshadow(gaussian, rgba(255,0,0,0.6), 10, 0, 0, 0);
+}

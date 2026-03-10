@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane prefHeight="600.0" prefWidth="822.0" stylesheets="@../../../css/salesreport.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.star_digitalBook.controller.SalesreportController">
+
+    <children>
+
+        <AnchorPane prefHeight="600.0" prefWidth="822.0">
+
+            <VBox spacing="20" AnchorPane.bottomAnchor="20" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" AnchorPane.topAnchor="20">
+
+                <!-- ===== TOP HORIZONTAL SCROLLPANE ===== -->
+                <ScrollPane fitToHeight="true" fitToWidth="false" hbarPolicy="AS_NEEDED" prefHeight="160" style="-fx-background-color: transparent;" vbarPolicy="NEVER">
+
+                    <content>
+                        <HBox maxWidth="-Infinity" spacing="20" style="-fx-padding: 10;">
+                            <children>
+                                <AnchorPane prefHeight="136.0" prefWidth="183.0" style="-fx-border-color: GREY;">
+                                    <children>
+                                        <Label layoutX="20.0" layoutY="14.0" text="TODAY INCOME ">
+                                            <font>
+                                                <Font name="System Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="72.0" layoutY="41.0" prefHeight="32.0" prefWidth="40.0" text="💵" textFill="#28b928">
+                                            <font>
+                                                <Font size="36.0" />
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="29.0" layoutY="95.0" prefHeight="30.0" prefWidth="27.0" text="RS:">
+                                            <font>
+                                                <Font size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <Label fx:id="lblTodayIncome" layoutX="62.0" layoutY="96.0" prefHeight="27.0" prefWidth="99.0" text="  0.0">
+                                            <font>
+                                                <Font size="18.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: grey;">
+                                    <children>
+                                        <Label layoutX="32.0" layoutY="14.0" text="TODAY ORDERS">
+                                            <font>
+                                                <Font name="System Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="77.0" layoutY="43.0" prefHeight="54.0" prefWidth="51.0" text="🛒" textFill="#1b1b1b">
+                                            <font>
+                                                <Font size="36.0" />
+                                            </font>
+                                        </Label>
+                                        <Label fx:id="lblTodayOrders" layoutX="81.0" layoutY="98.0" prefHeight="27.0" prefWidth="38.0" text="  0">
+                                            <font>
+                                                <Font size="18.0" />
+                                            </font>
+                                        </Label>
+                                    </children></AnchorPane>
+                                <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: grey;">
+                                    <children>
+                                        <Label layoutX="43.0" layoutY="14.0" text="TOTAL INCOME">
+                                            <font>
+                                                <Font name="System Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="81.0" layoutY="41.0" prefHeight="32.0" prefWidth="40.0" text="💵" textFill="#28b928">
+                                            <font>
+                                                <Font size="36.0" />
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="35.0" layoutY="95.0" prefHeight="30.0" prefWidth="27.0" text="RS:">
+                                            <font>
+                                                <Font size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <Label fx:id="lblTotalIncome" layoutX="68.0" layoutY="96.0" prefHeight="27.0" prefWidth="99.0" text="  0.0">
+                                            <font>
+                                                <Font size="18.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: grey;">
+                                    <children>
+                                        <Label layoutX="69.0" layoutY="7.0" text="TODAY">
+                                            <font>
+                                                <Font name="System Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="46.0" layoutY="31.0" text="CUSTOMERS">
+                                            <font>
+                                                <Font name="System Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="80.0" layoutY="54.0" prefHeight="46.0" prefWidth="35.0" text="👨‍👩‍👧‍👦" textFill="#4e5b0c">
+                                            <font>
+                                                <Font size="24.0" />
+                                            </font>
+                                        </Label>
+                                        <Label fx:id="lblTodayCustomers" layoutX="83.0" layoutY="99.0" prefHeight="27.0" prefWidth="24.0" text="0">
+                                            <font>
+                                                <Font size="18.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </AnchorPane>
+                            </children>
+
+                        </HBox>
+                    </content>
+                </ScrollPane>
+                <Separator prefHeight="13.0" prefWidth="782.0" />
+                <HBox prefHeight="350.0" prefWidth="782.0">
+                    <children>
+                        <AnchorPane prefHeight="350.0" prefWidth="380.0">
+                            <children>
+                                <LineChart fx:id="dailyCustomerChart" prefHeight="361.6" prefWidth="429.6" title="Daily customer Analysis" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <xAxis>
+                                        <CategoryAxis side="BOTTOM" />
+                                    </xAxis>
+                                    <yAxis>
+                                        <NumberAxis side="LEFT" />
+                                    </yAxis>
+                                </LineChart>
+                            </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="350.0" prefWidth="408.0">
+                            <children>
+                                <BarChart fx:id="dailyOrdersChart" barGap="5.0" layoutX="2.2" prefHeight="375.2" prefWidth="469.6" stylesheets="@../../../css/salesreport.css" title="Daily orders Analysis" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="2.2" AnchorPane.rightAnchor="-1.3999999999999773" AnchorPane.topAnchor="0.0">
+                                    <xAxis>
+                                        <CategoryAxis side="BOTTOM" />
+                                    </xAxis>
+                                    <yAxis>
+                                        <NumberAxis side="LEFT" />
+                                    </yAxis>
+                                </BarChart>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </HBox>
+
+            </VBox>
+
+        </AnchorPane>
+
+    </children>
+
+</StackPane>

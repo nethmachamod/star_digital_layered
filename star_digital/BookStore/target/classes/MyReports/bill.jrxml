@@ -1,0 +1,148 @@
+<!-- Created with Jaspersoft Studio version 7.0.3.final using JasperReports Library version 7.0.3-41034ca841d452f3305ba55b9042260aaa1ab5dd  -->
+<jasperReport name="bill" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="412f2dc8-4298-4a77-bc7d-ec69ac676a65">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="orderId" class="java.lang.String"/>
+	<query language="SQL"><![CDATA[SELECT
+    o.order_id            AS orderId,
+    i.item_name           AS itemName,
+    oi.unit_price         AS unitPrice,
+    oi.quantity           AS quantity,
+    oi.line_total         AS lineTotal,
+    
+    o.customer_id         AS customerId,
+    o.order_contact       AS orderContact,
+    o.order_type          AS orderType,
+    o.order_date          AS orderDate,
+    o.amount              AS amount,
+    o.discount            AS discount,
+    o.total               AS totalAmount,
+    
+    p.payment_method      AS paymentMethod,
+    p.paid_amount         AS paidAmount,
+    p.balance             AS balance
+
+FROM orders o
+INNER JOIN order_items oi
+    ON o.order_id = oi.order_id
+INNER JOIN item i
+    ON oi.item_id = i.item_id
+LEFT JOIN payment p
+    ON o.order_id = p.order_id
+
+WHERE o.order_id = $P{orderId}
+]]></query>
+	<field name="orderId" class="java.lang.String"/>
+	<field name="itemName" class="java.lang.String"/>
+	<field name="unitPrice" class="java.math.BigDecimal"/>
+	<field name="quantity" class="java.lang.Integer"/>
+	<field name="lineTotal" class="java.math.BigDecimal"/>
+	<field name="customerId" class="java.lang.String"/>
+	<field name="paymentMethod" class="java.lang.String"/>
+	<field name="paidAmount" class="java.math.BigDecimal"/>
+	<field name="balance" class="java.math.BigDecimal"/>
+	<field name="orderContact" class="java.lang.String"/>
+	<field name="orderType" class="java.lang.String"/>
+	<field name="orderDate" class="java.sql.Timestamp"/>
+	<field name="amount" class="java.math.BigDecimal"/>
+	<field name="discount" class="java.math.BigDecimal"/>
+	<field name="totalAmount" class="java.math.BigDecimal"/>
+	<title height="70">
+		<element kind="staticText" uuid="9648d7d1-e096-46d1-847b-6ec4538c4cde" x="0" y="0" width="555" height="30" fontSize="18.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[STAR DIGITAL BOOKS & STATIONARIES]]></text>
+		</element>
+		<element kind="staticText" uuid="4a472e9d-54bd-4e9d-931e-98d823116750" x="0" y="35" width="555" height="20" fontSize="12.0" hTextAlign="Center">
+			<text><![CDATA[Horana - Moronthuduwa Road, Millaniya | Tel: 0764854898]]></text>
+		</element>
+	</title>
+	<pageHeader height="80">
+		<element kind="staticText" uuid="3ec1581a-6fa4-4c49-97d8-a30a04eed2dd" x="0" y="0" width="80" height="20">
+			<text><![CDATA[Order ID :]]></text>
+		</element>
+		<element kind="textField" uuid="e4de89a0-c4b8-4130-bcbd-e93bcd3acabe" x="90" y="0" width="150" height="20">
+			<expression><![CDATA[$F{orderId}]]></expression>
+		</element>
+		<element kind="staticText" uuid="ce9e6996-3032-471b-b4e0-d253774781dd" x="0" y="25" width="80" height="20">
+			<text><![CDATA[Customer :]]></text>
+		</element>
+		<element kind="textField" uuid="ea177853-6556-4741-8c00-d5539ec14c35" x="90" y="25" width="150" height="20">
+			<expression><![CDATA[$F{customerId}]]></expression>
+		</element>
+		<element kind="staticText" uuid="13e40f3d-078e-432a-ac66-cb5aaa1d8e38" x="320" y="0" width="90" height="20">
+			<text><![CDATA[Contact :]]></text>
+		</element>
+		<element kind="textField" uuid="ae386cef-28c0-49e8-a0db-52ba6c7cd762" x="410" y="0" width="140" height="20">
+			<expression><![CDATA[$F{orderContact}]]></expression>
+		</element>
+		<element kind="staticText" uuid="d95e3358-fd84-4d99-88d0-0fe0568fd3b7" x="320" y="25" width="90" height="20">
+			<text><![CDATA[Order Type :]]></text>
+		</element>
+		<element kind="textField" uuid="71748963-97ac-4734-bdc0-92fd5f530bf1" x="410" y="25" width="140" height="20">
+			<expression><![CDATA[$F{orderType}]]></expression>
+		</element>
+		<element kind="staticText" uuid="dd5651bb-6154-4d5d-b7ed-f9c5982401e5" x="0" y="50" width="80" height="20">
+			<text><![CDATA[Date :]]></text>
+		</element>
+		<element kind="textField" uuid="cd9e2d37-23f2-48b1-a92f-85507351084c" x="90" y="50" width="150" height="20">
+			<expression><![CDATA[$F{orderDate}]]></expression>
+		</element>
+	</pageHeader>
+	<columnHeader height="30">
+		<element kind="staticText" uuid="77d3df17-0dc1-4b27-91e3-9b9b9b493ea9" x="0" y="0" width="230" height="30">
+			<text><![CDATA[ITEM]]></text>
+		</element>
+		<element kind="staticText" uuid="6ddc7a13-3a54-40ca-87a3-126b13c6b350" x="230" y="0" width="100" height="30">
+			<text><![CDATA[PRICE]]></text>
+		</element>
+		<element kind="staticText" uuid="470ad74f-943d-4025-8cb5-f0dc7e20f241" x="330" y="0" width="80" height="30">
+			<text><![CDATA[QTY]]></text>
+		</element>
+		<element kind="staticText" uuid="52cd8c50-f245-460b-97d8-0d42fca05d4a" x="410" y="0" width="145" height="30">
+			<text><![CDATA[TOTAL]]></text>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="25">
+			<element kind="textField" uuid="a2af611b-1645-4f99-9c85-c33c40b4847b" x="0" y="0" width="230" height="25">
+				<expression><![CDATA[$F{itemName}]]></expression>
+			</element>
+			<element kind="textField" uuid="f7c9644c-7615-4aec-8480-c558218ef257" x="230" y="0" width="100" height="25">
+				<expression><![CDATA[$F{unitPrice}]]></expression>
+			</element>
+			<element kind="textField" uuid="9122340b-f0c4-4e95-acd4-d82914f4f437" x="330" y="0" width="80" height="25">
+				<expression><![CDATA[$F{quantity}]]></expression>
+			</element>
+			<element kind="textField" uuid="3a9294d3-0bbb-4e05-bea4-c782b7996dba" x="410" y="0" width="145" height="25">
+				<expression><![CDATA[$F{lineTotal}]]></expression>
+			</element>
+		</band>
+	</detail>
+	<summary height="120">
+		<element kind="staticText" uuid="93957273-a7d7-4b66-b9ab-a52d65c4ffe1" x="350" y="0" width="100" height="20">
+			<text><![CDATA[Discount]]></text>
+		</element>
+		<element kind="textField" uuid="441783a8-347c-4b2e-8011-1df5c970c922" x="460" y="0" width="95" height="20">
+			<expression><![CDATA[$F{discount}]]></expression>
+		</element>
+		<element kind="staticText" uuid="20f02741-ee43-457d-80ea-a974d5bfcd08" x="350" y="25" width="100" height="20">
+			<text><![CDATA[Total]]></text>
+		</element>
+		<element kind="textField" uuid="21e6834b-c894-4c24-99d2-75088607d6c8" x="460" y="25" width="95" height="20">
+			<expression><![CDATA[$F{amount}]]></expression>
+		</element>
+		<element kind="staticText" uuid="f3de343f-5be8-4850-a93e-edae64ff5376" x="350" y="50" width="100" height="20">
+			<text><![CDATA[Paid]]></text>
+		</element>
+		<element kind="textField" uuid="20d3031c-ac54-42b3-9756-bc946bd29399" x="460" y="50" width="95" height="20">
+			<expression><![CDATA[$F{paidAmount}]]></expression>
+		</element>
+		<element kind="staticText" uuid="17c3a455-6337-4e7b-b048-2054b4421c00" x="350" y="75" width="100" height="20">
+			<text><![CDATA[Balance]]></text>
+		</element>
+		<element kind="textField" uuid="883ac78d-552d-47ea-97ff-bb597002cf23" x="460" y="75" width="95" height="20">
+			<expression><![CDATA[$F{balance}]]></expression>
+		</element>
+		<element kind="staticText" uuid="7447833a-3714-410f-a079-97c9fd59dfc1" x="0" y="95" width="555" height="25" fontSize="14.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[THANK YOU !]]></text>
+		</element>
+	</summary>
+</jasperReport>
