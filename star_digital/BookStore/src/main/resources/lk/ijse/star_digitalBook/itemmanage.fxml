@@ -10,16 +10,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="822.0" stylesheets="@../../../css/itemmanage.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.star_digitalBook.controller.ItemmanageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="822.0" stylesheets="@../../../css/itemmanage.css" xmlns="http://javafx.com/javafx/13" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.star_digitalBook.controller.ItemmanageController">
     <children>
         <AnchorPane layoutX="9.0" layoutY="14.0" prefHeight="286.0" prefWidth="807.0" AnchorPane.leftAnchor="9.199999999999932" AnchorPane.topAnchor="14.0">
             <children>
                 <TableView fx:id="tblitem" layoutX="311.0" layoutY="43.0" prefHeight="286.4" prefWidth="807.2" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columns>
-                        <TableColumn fx:id="idcol" prefWidth="179.99999409914017" text="Item ID" />
-                        <TableColumn fx:id="namecol" prefWidth="231.20001220703125" text="Item Name" />
-                        <TableColumn fx:id="categorycol" minWidth="0.0" prefWidth="207.20001220703125" text="item Category" />
-                        <TableColumn fx:id="pricecol" prefWidth="189.60003662109375" text="Price(Rs)" />
+                        <TableColumn fx:id="idcol" prefWidth="180.0" text="Item ID" />
+                        <TableColumn fx:id="namecol" prefWidth="231.0" text="Item Name" />
+                        <TableColumn fx:id="categorycol" minWidth="0.0" prefWidth="207.0" text="Item Category" />
+                        <TableColumn fx:id="pricecol" prefWidth="190.0" text="Price(Rs)" />
                     </columns>
                 </TableView>
             </children>

@@ -9,7 +9,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import lk.ijse.star_digitalBook.controller.models.PaymentModel;
+import lk.ijse.star_digitalBook.bo.BOFactory;
+import lk.ijse.star_digitalBook.bo.custom.Impl.PaymentBOImpl;
+import lk.ijse.star_digitalBook.bo.custom.InventoryBO;
+import lk.ijse.star_digitalBook.bo.custom.PaymentBO;
 import lk.ijse.star_digitalBook.dto.paymentDTO;
 
 public class PaymentManageController implements Initializable {
@@ -20,6 +23,9 @@ public class PaymentManageController implements Initializable {
     private ComboBox<String> paymentTypeCombo;
     @FXML
     private Label balanceLabel;
+
+
+    PaymentBO paymentBO =(PaymentBO) BOFactory.getInstance().getBO(BOFactory.BOType.PAYMENT);
 
     
     private static String selectedOrderId;
@@ -63,7 +69,7 @@ public class PaymentManageController implements Initializable {
 
     private void loadNextPaymentId() {
         try {
-            String nextId = PaymentModel.getNextPaymentId();
+            String nextId = paymentBO.getNextPaymentId();
             paymentIdTxt.setText(nextId);
         } catch (Exception e) {
             e.printStackTrace();
@@ -147,7 +153,7 @@ public class PaymentManageController implements Initializable {
             );
 
             
-            boolean saved = PaymentModel.savePayment(payment);
+            boolean saved = paymentBO.savePayment(payment);
             
             if (saved) {
                 showAlert(Alert.AlertType.INFORMATION, "Success", 
@@ -188,7 +194,7 @@ public class PaymentManageController implements Initializable {
                 return;
             }
 
-            PaymentModel paymentModel = new PaymentModel();
+            PaymentBO paymentModel = new PaymentBOImpl();
             paymentModel.printBill(orderId);  
         } catch (Exception e) {
             e.printStackTrace();

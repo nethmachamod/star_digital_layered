@@ -21,6 +21,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import lk.ijse.star_digitalBook.App;
 
+import lk.ijse.star_digitalBook.bo.BOFactory;
+import lk.ijse.star_digitalBook.bo.custom.InventoryBO;
+import lk.ijse.star_digitalBook.bo.custom.ItemBO;
 import lk.ijse.star_digitalBook.dto.CartItemDTO;
 import lk.ijse.star_digitalBook.dto.ItemDTO;
 import lk.ijse.star_digitalBook.util.MenuRefresher;
@@ -48,7 +51,9 @@ public class MenumanagementController implements Initializable {
     @FXML
     private Button btnProceedToOrder;
 
-    private final ItemModel itemModel = new ItemModel();
+    ItemBO itemBO=(ItemBO) BOFactory.getInstance().getBO(BOFactory.BOType.ITEM);
+
+
     private ObservableList<CartItemDTO> cartItems = FXCollections.observableArrayList();
     private double cartTotal = 0.0;
 
@@ -106,7 +111,7 @@ public class MenumanagementController implements Initializable {
     private void loadMenuItems() {
         flowMenu.getChildren().clear();
         try {
-            List<ItemDTO> itemList = itemModel.getItem();
+            List<ItemDTO> itemList = itemBO.getItem();
 
             if (itemList.isEmpty()) {
                 Label noItemsLabel = new Label("No menu items available");

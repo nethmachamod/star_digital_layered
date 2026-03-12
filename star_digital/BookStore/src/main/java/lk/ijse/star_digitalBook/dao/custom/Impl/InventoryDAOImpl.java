@@ -97,9 +97,9 @@ public class InventoryDAOImpl implements InventoryDAO {
             int num = Integer.parseInt(lastId.replace("INV", ""));
             num++;
 
-            return String.format("INV%03d", num);
+            return Integer.parseInt(String.format("INV%03d", num));
         }
 
-        return "INV001";
+        return Integer.parseInt("INV001");
     }
 }

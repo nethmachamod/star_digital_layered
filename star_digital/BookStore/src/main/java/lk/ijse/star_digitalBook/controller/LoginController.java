@@ -6,7 +6,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import lk.ijse.star_digitalBook.App;
-import lk.ijse.star_digitalBook.controller.models.UserModel;
+import lk.ijse.star_digitalBook.bo.BOFactory;
+import lk.ijse.star_digitalBook.bo.custom.InventoryBO;
+import lk.ijse.star_digitalBook.bo.custom.UserBO;
+
 import lk.ijse.star_digitalBook.dto.UserDto;
 
 
@@ -20,10 +23,10 @@ public class LoginController  {
     @FXML
     private PasswordField passwordField;
 
-   
 
 
-    private final UserModel userModel = new UserModel();
+    UserBO userBO=(UserBO) BOFactory.getInstance().getBO(BOFactory.BOType.USER);
+
 
    
 
@@ -40,7 +43,7 @@ try{
             } else {
 
                 UserDto userDto = new UserDto(username,password);
-                boolean result = userModel.userDetails(userDto);
+                boolean result = userBO.userDetails(userDto);
 
                 if(result){
 

@@ -4,7 +4,7 @@ module lk.ijse.star_digitalBook {
     requires java.base;
     requires java.sql;
     requires net.sf.jasperreports.core;
-    requires lk.ijse.star_digitalBook;
+
 
 
     opens lk.ijse.star_digitalBook.dto to javafx.base;

@@ -4,6 +4,7 @@ import java.io.File;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -23,8 +24,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.FileChooser;
-import lk.ijse.star_digitalBook.controller.models.SupplierModel;
+import lk.ijse.star_digitalBook.bo.BOFactory;
+import lk.ijse.star_digitalBook.bo.custom.InventoryBO;
+import lk.ijse.star_digitalBook.bo.custom.SupplierBO;
 import lk.ijse.star_digitalBook.dto.supplierDTO;
+import lk.ijse.star_digitalBook.entity.supplierentity;
 
 public class SupplierController implements Initializable {
     @FXML
@@ -62,7 +66,7 @@ public class SupplierController implements Initializable {
     @FXML
     private TableColumn<supplierDTO, String> colstatus;
 
-    private final SupplierModel supModel = new SupplierModel();
+    SupplierBO supplierBO=(SupplierBO) BOFactory.getInstance().getBO(BOFactory.BOType.SUPPLIER);
 
     
     private final String CONTACT_REGEX = "^07[0-9]{8}$";
@@ -96,13 +100,22 @@ public class SupplierController implements Initializable {
             if (event.getClickCount() == 2) {
                 supplierDTO selected = tblsup.getSelectionModel().getSelectedItem();
                 if (selected != null) {
-                    populateFields(selected);
+                    supplierentity entity = new supplierentity(
+                            selected.getSupid(),
+                            selected.getSupname(),
+                            selected.getSupcontact(),
+                            selected.getSupdate(),
+                            selected.getSupagency(),
+                            selected.getCompanyname(),
+                            selected.getSupstatus(),
+                            selected.getImagepath());
+                    populateFields(entity);
                 }
             }
         });
     }
 
-    private void populateFields(supplierDTO sup) {
+    private void populateFields(supplierentity sup) {
         idfield.setText(String.valueOf(sup.getSupid()));
         namefield.setText(sup.getSupname());
         contactfield.setText(sup.getSupcontact());
@@ -129,9 +142,9 @@ public class SupplierController implements Initializable {
 
     private void loadNextSupplierId() {
         try {
-            int nextId = SupplierModel.getNextSuppllierId();
+            int nextId = supplierBO.getNextSuppllierId();
             idfield.setText(String.valueOf(nextId));
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
             showAlert(Alert.AlertType.ERROR, "Error", "Failed to load next supplier ID");
         }
@@ -158,7 +171,7 @@ public class SupplierController implements Initializable {
                     name, number, date, agency, company, status, imagePath
             );
 
-            boolean ok = SupplierModel.savesup(supdto);
+            boolean ok = supplierBO.savesup(supdto);
 
             if (ok) {
                 showAlert(Alert.AlertType.INFORMATION, "Success", "Supplier saved successfully");
@@ -203,7 +216,7 @@ public class SupplierController implements Initializable {
                     id, name, number, date, agency, company, status, imagePath
             );
 
-            boolean result = SupplierModel.updatesup(supdto);
+            boolean result = supplierBO.updatesup(supdto);
 
             if (result) {
                 showAlert(Alert.AlertType.INFORMATION, "Success", "Supplier updated successfully");
@@ -230,7 +243,7 @@ public class SupplierController implements Initializable {
                     return;
                 }
 
-                supplierDTO supdto = SupplierModel.searchsup(Integer.parseInt(id));
+                supplierentity supdto = supplierBO.searchsup(Integer.parseInt(id));
 
                 if (supdto == null) {
                     showAlert(Alert.AlertType.ERROR, "Not Found", "Supplier not found");
@@ -264,7 +277,7 @@ public class SupplierController implements Initializable {
                 return;
             }
 
-            boolean result = SupplierModel.deletesup(id);
+            boolean result = supplierBO.deletesup(id);
 
             if (result) {
                 showAlert(Alert.AlertType.INFORMATION, "Success", "Supplier deleted successfully");
@@ -316,7 +329,7 @@ public class SupplierController implements Initializable {
 
     private void loadsuptable() {
         try {
-            List<supplierDTO> supplierlist = supModel.getsuppliers();
+            ArrayList<supplierDTO> supplierlist = supplierBO.getsuppliers();
             ObservableList<supplierDTO> oblist = FXCollections.observableArrayList(supplierlist);
             tblsup.setItems(oblist);
         } catch (Exception e) {

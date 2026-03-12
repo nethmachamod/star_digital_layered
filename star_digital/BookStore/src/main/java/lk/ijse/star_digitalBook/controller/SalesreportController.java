@@ -8,8 +8,12 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
-import lk.ijse.star_digitalBook.controller.models.SalesReportModel;
+
+import lk.ijse.star_digitalBook.bo.BOFactory;
+import lk.ijse.star_digitalBook.bo.custom.InventoryBO;
+import lk.ijse.star_digitalBook.bo.custom.SalesBO;
 import lk.ijse.star_digitalBook.dto.DailyChartDTO;
+import lk.ijse.star_digitalBook.entity.DailyChartentyti;
 
 public class SalesreportController implements Initializable {
 
@@ -30,8 +34,8 @@ public class SalesreportController implements Initializable {
      
      @FXML
     private Label lblTodayCustomers;
-     
-     
+
+    SalesBO salesBO=(SalesBO) BOFactory.getInstance().getBO(BOFactory.BOType.SALES_REPORT);
      
 
     @Override
@@ -46,9 +50,9 @@ public class SalesreportController implements Initializable {
         series.setName("Daily Orders");
 
         try {
-            for (DailyChartDTO dto : SalesReportModel.getDailyOrders()) {
+            for (DailyChartentyti entity : salesBO.getDailyOrders()) {
                 series.getData().add(
-                    new XYChart.Data<>(dto.getDate(), dto.getValue())
+                    new XYChart.Data<>(entity.getDate(), entity.getValue())
                 );
             }
             dailyOrdersChart.getData().clear();
@@ -64,9 +68,9 @@ public class SalesreportController implements Initializable {
         series.setName("Daily Customers");
 
         try {
-            for (DailyChartDTO dto : SalesReportModel.getDailyCustomers()) {
+            for (DailyChartentyti entity : salesBO.getDailyCustomers()) {
                 series.getData().add(
-                    new XYChart.Data<>(dto.getDate(), dto.getValue())
+                    new XYChart.Data<>(entity.getDate(), entity.getValue())
                 );
             }
             dailyCustomerChart.getData().clear();
@@ -82,16 +86,16 @@ public class SalesreportController implements Initializable {
         
         try{
             lblTodayIncome.setText(
-            String.format("%.2f", SalesReportModel.getTodayIncome())
+            String.format("%.2f", salesBO.getTodayIncome())
         );
             lblTodayOrders.setText(
-            String.valueOf(SalesReportModel.getTodayOrders())
+            String.valueOf(salesBO.getTodayOrders())
         );
             lblTotalIncome.setText(
-            String.format("%.2f", SalesReportModel.getTotalIncome())
+            String.format("%.2f", salesBO.getTotalIncome())
         );
             lblTodayCustomers.setText(
-            String.valueOf(SalesReportModel.getTodayCustomers())
+            String.valueOf(salesBO.getTodayCustomers())
         );
             
         }catch(Exception e){

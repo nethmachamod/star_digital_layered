@@ -4,9 +4,8 @@
  */
 package lk.ijse.star_digitalBook.dao;
 
-import lk.ijse.star_digitalBook.dao.custom.Impl.EmployeeDAOImpl;
-import lk.ijse.star_digitalBook.dao.custom.Impl.InventoryDAOImpl;
-import lk.ijse.star_digitalBook.dao.custom.Impl.ItemDAOImpl;
+import lk.ijse.star_digitalBook.bo.custom.Impl.*;
+import lk.ijse.star_digitalBook.dao.custom.Impl.*;
 
 
 public class DAOFactory {
@@ -18,18 +17,35 @@ public class DAOFactory {
     public enum DAOType{
         EMPLOYEE,
         ITEM,
-        INVENTORY
+        INVENTORY,
+        ORDER,
+        SUPPLIER,
+        ORDER_ITEM,
+        PAYMENT,
+        SALES_REPORT,
+        USER
 
     }
     public SuperDAO getDAOType(DAOType daotype){
         switch (daotype){
             case EMPLOYEE:
                 return new EmployeeDAOImpl();
-                case ITEM:
-                    return new ItemDAOImpl();
-                    case INVENTORY:
-                        return new InventoryDAOImpl();
-
+            case ITEM:
+                return new ItemDAOImpl();
+            case INVENTORY:
+                return new InventoryDAOImpl();
+            case ORDER:
+                return new OrderDAOImpl();
+            case SUPPLIER:
+                return new SupplierDAOImpl();
+            case ORDER_ITEM:
+                return new OrderItemsDAOImpl();
+            case PAYMENT:
+                return new PaymentDAOImpl();
+            case SALES_REPORT:
+                return new SalesDAOImpl();
+            case USER:
+                return new UserDAOImpl();
             default:
                 return null;
         }

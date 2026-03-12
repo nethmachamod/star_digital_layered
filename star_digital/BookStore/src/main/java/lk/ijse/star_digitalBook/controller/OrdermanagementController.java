@@ -23,8 +23,11 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import lk.ijse.star_digitalBook.controller.models.OrderItemsModel;
-import lk.ijse.star_digitalBook.controller.models.OrderModel;
+import lk.ijse.star_digitalBook.bo.BOFactory;
+import lk.ijse.star_digitalBook.bo.custom.InventoryBO;
+import lk.ijse.star_digitalBook.bo.custom.OrderBO;
+
+import lk.ijse.star_digitalBook.bo.custom.OrderItemsBO;
 import lk.ijse.star_digitalBook.dto.CartItemDTO;
 import lk.ijse.star_digitalBook.dto.OrderItemDTO;
 import lk.ijse.star_digitalBook.dto.orderDTO;
@@ -54,6 +57,10 @@ public class OrdermanagementController implements Initializable {
     private TableColumn<CartItemDTO, Double> colItemPrice;
     @FXML
     private Label lblCartTotal;
+
+
+    OrderBO orderBO=(OrderBO) BOFactory.getInstance().getBO(BOFactory.BOType.ORDER);
+    OrderItemsBO orderItemsBO=(OrderItemsBO) BOFactory.getInstance().getBO(BOFactory.BOType.ORDER_ITEM);
 
     private static List<CartItemDTO> pendingCartItems = new ArrayList<>();
     private static double pendingCartTotal = 0.0;
@@ -138,7 +145,7 @@ public class OrdermanagementController implements Initializable {
         }
 
         try {
-            orderDTO order = OrderModel.getOrder(searchInput);
+            orderDTO order = orderBO.getOrder(searchInput);
             if (order != null) {
                 populateOrderFields(order);
                 loadOrderItems(searchInput);
@@ -162,7 +169,7 @@ public class OrdermanagementController implements Initializable {
     }
 
     private void loadOrderItems(String orderId) throws Exception {
-        List<OrderItemDTO> orderItems = OrderItemsModel.getOrderItemsByOrderId(orderId);
+        List<OrderItemDTO> orderItems = orderItemsBO.getOrderItemsByOrderId(orderId);
         List<CartItemDTO> cartItems = new ArrayList<>();
         double cartTotal = 0;
 
@@ -206,7 +213,7 @@ public class OrdermanagementController implements Initializable {
                     new ArrayList<>()
             );
 
-            boolean updated = OrderModel.updateOrder(order);
+            boolean updated = orderBO.updateOrder(order);
             if (updated) {
                 showAlert(Alert.AlertType.INFORMATION, "Success", "Order updated successfully");
                 clearAllData();
@@ -230,9 +237,9 @@ public class OrdermanagementController implements Initializable {
         if (confirm.showAndWait().get() == ButtonType.OK) {
             try {
                 String orderIdValue = orderId.getText();
-                OrderItemsModel.deleteOrderItems(orderIdValue);
+                orderItemsBO.deleteOrderItems(orderIdValue);
 
-                boolean deleted = OrderModel.deleteOrder(orderIdValue);
+                boolean deleted = orderBO.deleteOrder(orderIdValue);
                 if (deleted) {
                     showAlert(Alert.AlertType.INFORMATION, "Success", "Order deleted successfully");
                     clearAllData();
@@ -269,7 +276,7 @@ public class OrdermanagementController implements Initializable {
         }
 
         try {
-            String newOrderId = OrderModel.getNextOrderId();
+            String newOrderId = orderBO.getNextOrderId();
             String contactNumber = orderContact.getText().trim().isEmpty() ? "N/A" : orderContact.getText().trim();
 
             
@@ -295,7 +302,7 @@ public class OrdermanagementController implements Initializable {
                     new ArrayList<>()
             );
 
-            if (OrderModel.saveOrder(order)) {
+            if (orderBO.saveOrder(order)) {
                 saveOrderItems(newOrderId);
 
                 showAlert(Alert.AlertType.INFORMATION, "Success", "Order saved successfully with ID: " + newOrderId);
@@ -368,7 +375,7 @@ public class OrdermanagementController implements Initializable {
                 c.getUnitPrice(), 
                 lineTotal
         );
-        OrderItemsModel.saveOrderItem(item);
+        orderItemsBO.saveOrderItem(item);
     }
 }
 
@@ -398,7 +405,7 @@ public class OrdermanagementController implements Initializable {
 
     private void loadAllOrders() {
         try {
-            List<orderDTO> orders = OrderModel.getAllOrders();
+            List<orderDTO> orders = orderBO.getAllOrders();
             ObservableList<orderDTO> oblist = FXCollections.observableArrayList(orders);
             tblOrders.setItems(oblist);
         } catch (Exception e) {
@@ -414,7 +421,7 @@ public class OrdermanagementController implements Initializable {
 
     private void loadNextOrderId() {
         try {
-            orderId.setText(OrderModel.getNextOrderId());
+            orderId.setText(orderBO.getNextOrderId());
         } catch (Exception e) {
             showAlert(Alert.AlertType.ERROR, "Error", "Failed to load next order ID");
         }

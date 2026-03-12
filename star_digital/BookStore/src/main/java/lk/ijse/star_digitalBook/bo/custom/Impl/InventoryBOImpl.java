@@ -18,7 +18,7 @@ public class InventoryBOImpl implements InventoryBO {
     InventoryDAO inventoryDAO=(InventoryDAO) DAOFactory.getInstance().getDAOType(DAOFactory.DAOType.INVENTORY);
     @Override
     public String getNextInventoryId() throws SQLException, ClassNotFoundException {
-        return inventoryDAO.getnext();
+        return String.valueOf(inventoryDAO.getnext());
     }
 
     @Override

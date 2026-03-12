@@ -36,6 +36,8 @@ public class supplierentity {
         this.imagepath = imagepath;
     }
 
+
+
     public int getSupid() {
         return supid;
     }
