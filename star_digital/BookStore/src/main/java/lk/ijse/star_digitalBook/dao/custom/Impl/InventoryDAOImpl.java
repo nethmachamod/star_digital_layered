@@ -14,7 +14,7 @@ import java.util.List;
 public class InventoryDAOImpl implements InventoryDAO {
     @Override
     public ArrayList<inventoryentity> getAll() throws SQLException, ClassNotFoundException {
-        ArrayList<inventoryentity> list = new ArrayList<>();
+        ArrayList<inventoryentity> list = new ArrayList<inventoryentity>();
         String sql = "SELECT * FROM inventory";
         Statement st = DbConnection.getInstance().getConnection().createStatement();
         ResultSet rs = st.executeQuery(sql);
@@ -27,6 +27,7 @@ public class InventoryDAOImpl implements InventoryDAO {
                     String type=rs.getString("inventory_type");
                    LocalDate date= rs.getDate("stock_in_date") != null ? rs.getDate("stock_in_date").toLocalDate() : null;
                 inventoryentity entity = new inventoryentity(id,name,hand,type,date);
+                list.add(entity);
         }
         return list;
     }
@@ -95,11 +96,9 @@ public class InventoryDAOImpl implements InventoryDAO {
             String lastId = rs.getString(1);
 
             int num = Integer.parseInt(lastId.replace("INV", ""));
-            num++;
-
-            return Integer.parseInt(String.format("INV%03d", num));
+            return num + 1;
         }
 
-        return Integer.parseInt("INV001");
+        return 1;
     }
 }

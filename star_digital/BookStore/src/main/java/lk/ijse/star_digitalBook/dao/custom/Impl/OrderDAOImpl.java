@@ -121,7 +121,7 @@ public class OrderDAOImpl implements OrderDAO {
                     nextNum = maxId + 1;
                 }
             }
-            return Integer.parseInt("ORD" + String.format("%04d", nextNum));
+            return nextNum;
         } catch (SQLException e) {
             e.printStackTrace();
             throw new SQLException("Failed to get next order ID: " + e.getMessage());

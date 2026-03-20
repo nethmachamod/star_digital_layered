@@ -11,7 +11,6 @@ import java.util.List;
 
 public interface InventoryBO extends SuperBO {
 
-     String getNextInventoryId() throws SQLException, ClassNotFoundException ;
 
      boolean saveInventory(inventoryDTO dto) throws SQLException, ClassNotFoundException  ;
 
@@ -26,4 +25,5 @@ public interface InventoryBO extends SuperBO {
 
      List<inventoryDTO> getAllInventory() throws SQLException, ClassNotFoundException ;
 
+    int getnexteinventoryid() throws SQLException, ClassNotFoundException;
 }

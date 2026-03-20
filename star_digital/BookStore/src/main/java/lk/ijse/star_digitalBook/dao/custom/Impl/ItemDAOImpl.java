@@ -93,7 +93,7 @@ public class ItemDAOImpl implements ItemDAO {
     @Override
     public ArrayList<Itementity> getAll() throws SQLException, ClassNotFoundException {
         ResultSet rs = CrudUtil.execute("SELECT * FROM item");
-        ArrayList<Itementity> itemlist = new ArrayList<>();
+        ArrayList<Itementity> itemlist = new ArrayList<Itementity>();
 
         while (rs.next()) {
 
@@ -104,6 +104,7 @@ public class ItemDAOImpl implements ItemDAO {
                     String image_path=rs.getString("image_path");
 
             Itementity itementity = new Itementity(id,name,catagory,price,image_path);
+            itemlist.add(itementity);
         }
         return itemlist;
     }

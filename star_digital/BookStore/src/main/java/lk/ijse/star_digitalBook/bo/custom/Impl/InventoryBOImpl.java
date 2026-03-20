@@ -16,10 +16,9 @@ import java.util.List;
 public class InventoryBOImpl implements InventoryBO {
 
     InventoryDAO inventoryDAO=(InventoryDAO) DAOFactory.getInstance().getDAOType(DAOFactory.DAOType.INVENTORY);
-    @Override
-    public String getNextInventoryId() throws SQLException, ClassNotFoundException {
-        return String.valueOf(inventoryDAO.getnext());
-    }
+
+
+
 
     @Override
     public boolean saveInventory(inventoryDTO dto) throws SQLException, ClassNotFoundException {
@@ -51,4 +50,11 @@ public class InventoryBOImpl implements InventoryBO {
         }
         return dto;
     }
+
+    @Override
+    public int getnexteinventoryid()throws SQLException, ClassNotFoundException {
+        return inventoryDAO.getnext();
+    }
+
+
 }
